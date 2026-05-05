@@ -17,14 +17,6 @@ class GameScene: SKScene {
 	private var label: SKLabelNode?
 	private var spinnyNode: SKShapeNode?
 
-	override func didMove(to view: SKView) {  // like Start() in unity cuz i used to work in unity so i commented this
-		let background = SKSpriteNode(imageNamed: "PLACEHOLDERBG")
-		background.position = CGPoint(x: frame.midX, y: frame.midY) // sets position to middle since anchor of this bg is in middle(i think cuz that's works)
-		background.size = self.size // set size to fit the window size but not keep ratio (i think(again))
-		background.zPosition = -1 // Ensure it stays behind other nodes
-		addChild(background)
-		
-	}
 	override func sceneDidLoad() {
 
 		self.lastUpdateTime = 0
@@ -110,7 +102,7 @@ class GameScene: SKScene {
 		}
 	}
 
-	override func update(_ currentTime: TimeInterval) { // TimeInterval is a double
+	override func update(_ currentTime: TimeInterval) {  // TimeInterval is a double
 		// Called before each frame is rendered
 
 		// Initialize _lastUpdateTime if it has not already been
@@ -123,7 +115,7 @@ class GameScene: SKScene {
 
 		// Update entities
 		for entity in self.entities {
-			entity.update(deltaTime: dt)// tell every entity to update after dt passed
+			entity.update(deltaTime: dt)  // tell every entity to update after dt passed
 		}
 
 		self.lastUpdateTime = currentTime
